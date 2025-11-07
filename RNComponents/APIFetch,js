@@ -1,0 +1,21 @@
+import { useEffect } from "react";
+
+function APIFetch(){
+
+    const apiCall = async()=>{
+        await fetch('',{
+            method:'get'
+        })
+        
+    }
+    useEffect(()=>{
+        try{
+           
+        }catch(e){
+
+        }
+    },[counter])
+    return(
+        <div></div>
+    );
+}

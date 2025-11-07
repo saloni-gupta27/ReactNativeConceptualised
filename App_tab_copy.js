@@ -1,5 +1,5 @@
 import { StatusBar as StatusBarExpo } from 'expo-status-bar';
-import { Platform, StatusBar, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { Counter } from './RNComponents/Counter';
 import { Currency } from './RNComponents/Currency';
 import { BMI } from './RNComponents/BMI';
@@ -19,19 +19,14 @@ import { Productlist } from './Pages/Products/ProductList';
 import { Todos } from './Pages/Todos/Todos';
 import { NavigationContainer } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 export default function App() {
 
   //let Stack=createNativeStackNavigator()
-  // let Tab=createBottomTabNavigator()
-  let Drawer =createDrawerNavigator()
-  const dimension=useWindowDimensions()
-  
-  let islarge=dimension.width>760
+  let Tab=createBottomTabNavigator()
   return (
     <View style={styles.container}>
       <StatusBarExpo style="auto" />
@@ -56,7 +51,7 @@ export default function App() {
            <Stack.Screen name="Counter" component={Counter}/>
       
         </Stack.Navigator> */}
-        {/* <Tab.Navigator
+        <Tab.Navigator
         screenOptions={{
           headerTitle:"Welcome",
           tabBarStyle:{backgroundColor:"cadetblue"},
@@ -81,23 +76,7 @@ export default function App() {
            <Tab.Screen name="Counter" component={Counter}
            initialParams={{min:0,max:10}}
            />
-        </Tab.Navigator> */}
-         <Drawer.Navigator
-        screenOptions={{
-          drawerActiveBackgroundColor:"cadetblue",
-          drawerActiveTintColor:"greenyellow",
-          drawerType:islarge?"permanent":"front"
-        }}
-        >
-           <Drawer.Screen
-           name="Home" component={Learn}/>
-           <Drawer.Screen 
-           name="Login" component={Login}/>
-           <Drawer.Screen name="Bmi" component={BMI}/>
-           <Drawer.Screen name="Counter" component={Counter}
-           initialParams={{min:0,max:10}}
-           />
-        </Drawer.Navigator>
+        </Tab.Navigator>
       </NavigationContainer>
     </View>
   );
